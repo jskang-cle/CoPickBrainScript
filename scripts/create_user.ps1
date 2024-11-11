@@ -48,7 +48,7 @@ Write-Host "Serial number: $serial"
 $user = Get-LocalUser -Name $serial -ErrorAction SilentlyContinue
 
 if ($user) {
-    Write-Host "The user $serial already exists."
+    Write-Host "The user $serial already exists." -ForegroundColor White -BackgroundColor DarkGreen
 }
 else {
     # Create new local user with the serial number and no password
@@ -56,9 +56,9 @@ else {
 
     $newUser = Get-LocalUser -Name $serial -ErrorAction SilentlyContinue
     if ($newUser) {
-        Write-Host "The user $serial was created successfully."
+        Write-Host "The user $serial was created successfully." -ForegroundColor White -BackgroundColor DarkGreen
     }
     else {
-        Write-Host "The user $serial could not be created."
+        Write-Host "The user $serial could not be created." -ForegroundColor White -BackgroundColor Red
     }
 }
